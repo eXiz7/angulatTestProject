@@ -1,0 +1,23 @@
+
+
+<div class="component-container">
+    <p class="page-title">Statistic</p>
+
+    
+    <table class="items-table">
+        <tr>
+            <th>Item Type</th>
+            <th>Count</th>
+        </tr>
+        <tr ng-repeat="item in $ctrl.displayedStats">
+                <td><input disabled class="items-table-input" ng-model="item.type_name" /></td>
+                <td><input disabled class="items-table-input"  ng-model="item.count" /></td>
+        </tr>
+    </table>
+    
+    <ul ng-if="$ctrl.pager.pages.length  && $ctrl.displayedStats.length > 0" class="pagination">
+        <li ng-repeat="page in $ctrl.pager.pages" ng-class="{active:$ctrl.pager.currentPage === page}">
+            <a ng-click="$ctrl.setPage(page)">{{page}}</a>
+        </li>    
+    </ul>
+</div>

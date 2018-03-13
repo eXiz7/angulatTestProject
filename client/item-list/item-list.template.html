@@ -1,0 +1,39 @@
+
+
+<div class="component-container">
+    <p class="page-title">Items</p>
+    <p>add new item</p>
+    <div class="input-form">
+        <div class="input-form-panel">
+            <input placeholder="Item name" class="form-control input-field" ng-model="$ctrl.itemName" />
+        </div>
+        <div class="input-form-panel">
+            <input placeholder="Item type" class="form-control input-field" ng-model="$ctrl.itemType" />
+        </div>
+        <div class="input-form-panel">
+            <div class="form-control btn" ng-disabled="!$ctrl.isAbleToAdd()" ng-click="$ctrl.add()">add</div>
+        </div>
+    </div>
+    <table class="items-table">
+        <tr>
+            <th>Item Name</th>
+            <th>Item Type</th>
+            <th>        </th>
+        </tr>
+        <tr ng-repeat="item in $ctrl.displayedItems">
+                <td><input ng-disabled="!item.isEditing" class="items-table-input" ng-model="item.item_name" /></td>
+                <td><input ng-disabled="!item.isEditing" class="items-table-input"  ng-model="item.type_name" /></td>
+                <td>
+                    <a href='#' ng-click="$ctrl.delete(item)">delete</a> 
+                    <a href='#' ng-if="!item.isEditing" ng-click="$ctrl.edit(item)">edit</a>
+                    <a href='#' ng-if="item.isEditing" ng-disabled="!$ctrl.isAbleToEdit(item)" ng-click="$ctrl.save(item)">save</a>
+                </td>
+        </tr>
+    </table>
+    
+    <ul ng-if="$ctrl.pager.pages.length && $ctrl.displayedItems.length > 0" class="pagination">
+        <li ng-repeat="page in $ctrl.pager.pages" ng-class="{active:$ctrl.pager.currentPage === page}">
+            <a ng-click="$ctrl.setPage(page)">{{page}}</a>
+        </li>    
+    </ul>
+</div>

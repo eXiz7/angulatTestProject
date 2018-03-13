@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en" ng-app="testApp">
+  <head>
+    <meta charset="utf-8">
+    <base href="/">
+    <title>Test App</title>
+    <link rel="stylesheet" href="app.css" />
+      
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.js"></script>
+    <script src="https://code.angularjs.org/1.6.9/angular-route.js"></script>
+    <script src="https://code.angularjs.org/1.6.9/angular-resource.js"></script>
+    <script src="polyfills.js"></script>
+    <script src="app.module.js"></script>
+    <script src="app.config.js"></script>
+    <script src="services/item.service.js"></script>
+    <script src="services/paginator.service.js"></script>
+    <script src="item-list/item-list.component.js"></script>
+    <script src="item-statistic/item-statistic.component.js"></script>
+  </head>
+  <body>
+    <div>
+        <a href="/items">Items</a>
+        <a href="/statistic">Item Statisctic</a>
+    </div>
+    <div class="view-container">
+      <div ng-view class="view-frame"></div>
+    </div>
+
+  </body>
+</html>
